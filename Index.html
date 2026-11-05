@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELMONT - Official Store Unisex Apparel & Footwear</title>
+    <style>
+        :root {
+            --primary-color: #121212;
+            --accent-color: #c2410c;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            letter-spacing: 3px;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Informasi Toko */
+        .info-section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box p, .info-box ul {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            list-style: none;
+        }
+
+        .info-box ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        /* Etalase Produk */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .product-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--primary-color);
+        }
+
+        .product-price {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-quality {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.7rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Bagian Interaktif */
+        .interactive-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .interactive-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--card-bg);
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        .panel h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.6rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .pay-option {
+            border: 1px solid #cbd5e1;
+            padding: 0.8rem;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .pay-option.selected {
+            border-color: var(--accent-color);
+            background-color: #fff7ed;
+            color: var(--accent-color);
+        }
+
+        #payment-result {
+            margin-top: 1.2rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VELMONT</h1>
+        <p>Official Unisex Apparel & Footwear Store - Tasikmalaya</p>
+    </header>
+
+    <div class="container">
+        <!-- Informasi Toko, Alamat, Kontak, & Jam Operasional -->
+        <section class="info-section">
+            <div class="info-box">
+                <h3>📍 Alamat Toko Offline</h3>
+                <p>Jl. Bantar No. 04, Kota Tasikmalaya</p>
+                <p style="margin-top: 0.4rem; font-size: 0.85rem;">Pelanggan dipersilakan datang langsung ke toko fisik kami.</p>
+            </div>
+            <div class="info-box">
+                <h3>📞 Layanan Pelanggan (WhatsApp)</h3>
+                <ul>
+                    <li>📱 0857-5917-4977</li>
+                    <li>📱 0895-3894-66789</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>🕒 Jam Operasional</h3>
+                <p>Buka Setiap Hari: 09.00 - 21.00 WIB</p>
+            </div>
+        </section>
+
+        <!-- Etalase Produk -->
+        <h2 class="section-title">Etalase Produk Unisex VELMONT</h2>
+        <div class="product-grid" id="product-list">
+            
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <img src="1000523639.jpg" alt="Hoodie Gray Boxy Unisex" class="product-img">
+                <div class="product-info">
+                    <div class="product-name">Hoodie Gray Boxy Unisex</div>
+                    <div class="product-price">Rp 299,999</div>
+                    <div class="product-quality">Kualitas: Fleece katun tebal premium, potongan boxy fit modern, sablon HD awet, sangat nyaman dan hangat dipakai harian.</div>
+                    <button class="btn" onclick="pilihProduk('Hoodie Gray Boxy Unisex', 299999)">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <img src="1000523632.jpg" alt="Sepatu Gemuk White Unisex" class="product-img">
+                <div class="product-info">
+                    <div class="product-name">Sepatu Gemuk White Unisex</div>
+                    <div class="product-price">Rp 399,999</div>
+                    <div class="product-quality">Kualitas: Desain chunky/fatlace trendi, bahan suede sintetis tebal berkualitas tinggi, sol empuk, kokoh, dan anti-slip.</div>
+                    <button class="btn" onclick="pilihProduk('Sepatu Gemuk White Unisex', 399999)">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <img src="1000523651.jpg" alt="Baju Boxy T-Shirt" class="product-img">
+                <div class="product-info">
+                    <div class="product-name">Baju Boxy T-Shirt</div>
+                    <div class="product-price">Rp 199,999</div>
+                    <div class="product-quality">Kualitas: Cotton Combed 24s premium, adem di kulit, tidak mudah melar, jahitan rantai rapi berstandar distro.</div>
+                    <button class="btn" onclick="pilihProduk('Baju Boxy T-Shirt', 199999)">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 4 -->
+            <div class="product-card">
+                <img src="1000523648.jpg" alt="Celana Baggy Jeans Biru" class="product-img">
+                <div class="product-info">
+                    <div class="product-name">Celana Baggy Jeans Biru</div>
+                    <div class="product-price">Rp 499,999</div>
+                    <div class="product-quality">Kualitas: Denim tebal premium (non-stretch), model baggy loose fit bergaya vintage, aksen detail lengkap dan tahan lama.</div>
+                    <button class="btn" onclick="pilihProduk('Celana Baggy Jeans Biru', 499999)">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <!-- Produk 5 -->
+            <div class="product-card">
+                <img src="1000523643.jpg" alt="Knitwear" class="product-img">
+                <div class="product-info">
+                    <div class="product-name">Knitwear</div>
+                    <div class="product-price">Rp 199,999</div>
+                    <div class="product-quality">Kualitas: Rajutan benang akrilik halus pilihan, lembut di kulit, tidak bikin gatal, elastis, dengan motif grafis rajut eksklusif.</div>
+                    <button class="btn" onclick="pilihProduk('Knitwear', 199999)">Beli Sekarang</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Panel Interaktif (Simulasi Pembayaran & Tambah Produk) -->
+        <div class="interactive-section">
+            
+            <!-- Simulasi Pembayaran -->
+            <div class="panel">
+                <h3>Simulasi Pembayaran Checkout</h3>
+                <div class="form-group">
+                    <label>Produk yang Dipilih:</label>
+                    <input type="text" id="selected-product" value="Belum ada produk dipilih" readonly style="background-color: #f1f5f9;">
+                </div>
+                <div class="form-group">
+                    <label>Pilih Metode Pembayaran:</label>
+                    <div class="payment-methods">
+                        <div class="pay-option" onclick="setPayment('QRIS', this)">QRIS</div>
+                        <div class="pay-option" onclick="setPayment('BRI', this)">Transfer BRI</div>
+                        <div class="pay-option" onclick="setPayment('BSI', this)">Transfer BSI</div>
+                        <div class="pay-option" onclick="setPayment('BCA', this)">Transfer BCA</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="prosesPembayaran()">Proses Simulasi Pembayaran</button>
+                <div id="payment-result"></div>
+            </div>
+
+            <!-- Menu Tambah Produk -->
+            <div class="panel">
+                <h3>Menu Tambah Produk Baru</h3>
+                <form id="add-product-form" onsubmit="tambahProdukBaru(event)">
+                    <div class="form-group">
+                        <label>Nama Produk:</label>
+                        <input type="text" id="new-name" placeholder="Contoh: Hoodie Black Oversize" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Harga (Rp):</label>
+                        <input type="number" id="new-price" placeholder="Contoh: 250000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Penjelasan Kualitas:</label>
+                        <input type="text" id="new-quality" placeholder="Contoh: Fleece katun tebal, nyaman" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama File Foto / URL Gambar:</label>
+                        <input type="text" id="new-img" placeholder="Contoh: foto.jpg" required>
+                    </div>
+                    <button type="submit" class="btn">Tambahkan ke Etalase</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VELMONT Store Tasikmalaya. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentProduct = "";
+        let currentPrice = 0;
+        let selectedMethod = "";
+
+        function pilihProduk(nama, harga) {
+            currentProduct = nama;
+            currentPrice = harga;
+            document.getElementById('selected-product').value = `${nama} - Rp ${harga.toLocaleString('id-ID')}`;
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+
+        function setPayment(method, element) {
+            selectedMethod = method;
+            document.querySelectorAll('.pay-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        function prosesPembayaran() {
+            const resultDiv = document.getElementById('payment-result');
+            if (!currentProduct) {
+                alert('Silakan pilih produk dari etalase terlebih dahulu!');
+                return;
+            }
+            if (!selectedMethod) {
+                alert('Silakan pilih metode pembayaran (QRIS / BRI / BSI / BCA)!');
+                return;
+            }
+
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `<strong>Simulasi Pembayaran Berhasil!</strong><br>
+                Produk: <b>${currentProduct}</b><br>
+                Total: <b>Rp ${currentPrice.toLocaleString('id-ID')}</b><br>
+                Metode: <b>${selectedMethod}</b><br><br>
+                <em>Status: Menunggu Pembayaran. Atau Anda bisa langsung datang dan bayar di toko kami di Jl. Bantar No. 04, Kota Tasikmalaya.</em>`;
+        }
+
+        function tambahProdukBaru(event) {
+            event.preventDefault();
+            const name = document.getElementById('new-name').value;
+            const price = Number(document.getElementById('new-price').value);
+            const quality = document.getElementById('new-quality').value;
+            const img = document.getElementById('new-img').value;
+
+            const productList = document.getElementById('product-list');
+            const newCard = document.createElement('div');
+            newCard.className = 'product-card';
+            newCard.innerHTML = `
+                <img src="${img}" alt="${name}" class="product-img" onerror="this.src='https://via.placeholder.com/240?text=VELMONT'">
+                <div class="product-info">
+                    <div class="product-name">${name}</div>
+                    <div class="product-price">Rp ${price.toLocaleString('id-ID')}</div>
+                    <div class="product-quality">Kualitas: ${quality}</div>
+                    <button class="btn" onclick="pilihProduk('${name}', ${price})">Beli Sekarang</button>
+                </div>
+            `;
+            productList.appendChild(newCard);
+            document.getElementById('add-product-form').reset();
+            alert('Produk baru berhasil ditambahkan ke etalase!');
+        }
+    </script>
+</body>
+  </html>
+  
